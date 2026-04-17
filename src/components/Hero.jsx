@@ -4,7 +4,11 @@ import userOne from "../assets/user1.svg";
 import userTwo from "../assets/user2.svg";
 import userTree from "../assets/user3.svg";
 
+import { UseSearch } from "../components/UseSearch";
+
 function Hero() {
+  const { search, handleSearch, setSearch } = UseSearch("q");
+
   return (
     <main className="bg-gradient-to-br from-teal-600 to-teal-700 min-h-screen">
       <section className="custom-container text-white px-6 md:px-16 py-20 flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
@@ -26,6 +30,19 @@ function Hero() {
             <button className="bg-orange-500 hover:bg-orange-600 transition px-6 py-3 rounded-xl font-semibold shadow-lg">
               STUDENTS' OPINION
             </button>
+
+            {/* <input
+              type="text"
+              className="border-2 z-50"
+              defaultValue={search}
+              onKeyUp={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch();
+                } else {
+                  setSearch(e.target.value);
+                }
+              }}
+            /> */}
 
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">

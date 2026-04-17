@@ -70,7 +70,7 @@ function Navbar() {
           </div>
           <Link
             to={"/login"}
-            className={`px-6 py-2 rounded-[8px] ${styles.mainBackColor} text-white`}
+            className={`px-6 py-2 ${styles.radiusBtn} ${styles.mainBackColor} text-white`}
           >
             Sign In
           </Link>
