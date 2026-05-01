@@ -1,26 +1,63 @@
+// react-router-dom
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
+
+// assets
+import { logo, menu, close } from "../assets/index";
+
+// styles
 import { styles } from "../styles/style";
 
+// react-icons
 import { FaAngleDown } from "react-icons/fa6";
+import { useState } from "react";
 
 function Navbar() {
+  const [toggleNav, setToggleNav] = useState(false);
+
+  const toggleHandle = () => setToggleNav((prev) => !prev);
+
   return (
     <section className="shadow-md py-3">
-      <nav className="custom-container flex justify-between items-center">
+      <nav className="custom-container flex justify-between items-center relative">
         {/* Navbar start */}
         <div className="flex items-center gap-3">
-          <img src={logo} className="w-15 h-14" alt="logo" />
-          <h3 className={`font-semibold text-[22px] ${styles.mainColor}`}>
+          <img src={logo} className="w-10 h-10 md:w-15 md:h-14" alt="logo" />
+          <h3
+            className={`font-semibold text-[18px] md:text-[22px] hidden lg:block ${styles.mainColor}`}
+          >
             AL MUAMALAT
           </h3>
+          <img
+            src={toggleNav ? close : menu}
+            className="block sm:hidden w-8 h-8 object-cover"
+            onClick={toggleHandle}
+          />
+        </div>
+
+        {/* Toggle drop */}
+        <div
+          className={`${!toggleNav ? "hidden" : "flex"} side-sidebar custom-container justify-between py-3 z-50 bg-base-100 shadow-md absolute top-13 left-0 right-0 `}
+        >
+          <ul className="flex w-full justify-around items-center">
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+
+            <li>
+              <a href="#">Finance Tools</a>
+            </li>
+
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
         </div>
 
         {/* Navbar middle */}
-        <div className="flex items-center">
+        <div className="sm:flex hidden items-center">
           <ul className="flex gap-5">
             <li>
-              <a href="#">Home</a>
+              <Link to={"/"}>Home</Link>
             </li>
 
             <div className="dropdown dropdown-bottom dropdown-center">
@@ -29,13 +66,19 @@ function Navbar() {
               </div>
               <ul
                 tabIndex="-1"
-                className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                className="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm"
               >
                 <li>
-                  <a>Item 1</a>
+                  <a>International educational programs</a>
                 </li>
                 <li>
-                  <a>Item 2</a>
+                  <a>Specialized courses</a>
+                </li>
+                <li>
+                  <a>Islamic Finance Literacy Course</a>
+                </li>
+                <li>
+                  <a>Certification program</a>
                 </li>
               </ul>
             </div>
@@ -70,7 +113,7 @@ function Navbar() {
           </div>
           <Link
             to={"/login"}
-            className={`px-6 py-2 ${styles.radiusBtn} ${styles.mainBackColor} text-white`}
+            className={`px-4 md:px-6 py-1 md:py-2 ${styles.radiusBtn} ${styles.mainBackColor} text-white active:scale-95 transition-all duration-200`}
           >
             Sign In
           </Link>

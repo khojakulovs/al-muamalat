@@ -29,20 +29,19 @@ request.interceptors.response.use(
   async (error) => {
     if (error.response.status === 401) {
       try {
-        const refreshToken = localStorage.getItem("userToken");
+        const refreshToken = localStorage.getItem("refreshToken");
 
         const response = await axios.post(
-          "https://api.al-muamalat.uz/api/auth/refresh",
+          "https://api.al-muamalat.uz/api/v2/auth/refreshToken",
           { refreshToken },
         );
 
         const { accessToken } = response.data;
-        localStorage.setItem("userToken", accesstoken);
+        localStorage.setItem("userToken", accessToken);
 
         error.config.headers["Authorization"] = `Bearer ${accessToken}`;
         return request(error.config);
-      } 
-      catch {
+      } catch {
         window.location.href = "/login";
       }
     }

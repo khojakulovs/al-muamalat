@@ -1,0 +1,9 @@
+export { default as hero } from "./hero_img.svg";
+export { default as logo } from "./logo.svg";
+export { default as user_icon } from "./user_icon.png";
+export { default as user_One } from "./user1.svg";
+export { default as user_Two } from "./user2.svg";
+export { default as user_Tree } from "./user3.svg";
+export { default as menu } from "./menu.svg";
+export { default as close } from "./close.svg";
+export { default as expert } from "./expert.svg";
