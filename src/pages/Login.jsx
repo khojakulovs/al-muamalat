@@ -10,7 +10,7 @@ import { styles } from "../styles/style";
 // react
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/useAuth";
-import Loader from "../components/Loader";
+import { Loader } from "../components";
 
 function Login() {
   const { register, handleSubmit, reset } = useForm();

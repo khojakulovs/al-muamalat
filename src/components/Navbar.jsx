@@ -1,6 +1,7 @@
 // react-router-dom
 import { Link } from "react-router-dom";
 
+import { request } from "../services/request";
 // assets
 import { logo, menu, close } from "../assets/index";
 
@@ -10,9 +11,15 @@ import { styles } from "../styles/style";
 // react-icons
 import { FaAngleDown } from "react-icons/fa6";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 function Navbar() {
   const [toggleNav, setToggleNav] = useState(false);
+
+  const { data: courseList } = useQuery({
+    queryKey: ["course-list"],
+    queryFn: () => request.get("/courses/main").then((res) => res?.data),
+  });
 
   const toggleHandle = () => setToggleNav((prev) => !prev);
 
@@ -61,25 +68,35 @@ function Navbar() {
             </li>
 
             <div className="dropdown dropdown-bottom dropdown-center">
-              <div tabIndex={0} role="li" className="flex items-center gap-1">
-                Click <FaAngleDown />
-              </div>
-              <ul
-                tabIndex="-1"
-                className="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm"
+              {/* Trigger */}
+              <div
+                tabIndex={0}
+                role="button"
+                className="flex items-center gap-2 cursor-pointer px-4 rounded-xl 
+    hover:bg-base-200 transition-all duration-200 select-none"
               >
-                <li>
-                  <a>International educational programs</a>
-                </li>
-                <li>
-                  <a>Specialized courses</a>
-                </li>
-                <li>
-                  <a>Islamic Finance Literacy Course</a>
-                </li>
-                <li>
-                  <a>Certification program</a>
-                </li>
+                <span className="">Courses</span>
+
+                <FaAngleDown className="text-xs opacity-60 mt-[1px]" />
+              </div>
+
+              {/* Dropdown */}
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-base-100 rounded-2xl z-[100] 
+    w-60 p-2 mt-3 shadow-xl border border-base-200"
+              >
+                {courseList?.data?.map((course) => (
+                  <li key={course.course_id}>
+                    <Link
+                      to={`/programs/${course.course_id}`}
+                      className="rounded-xl py-3 text-sm font-medium 
+          hover:bg-base-200 transition-all duration-150"
+                    >
+                      {course.name_uz}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 

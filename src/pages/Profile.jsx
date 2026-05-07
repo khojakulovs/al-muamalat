@@ -1,6 +1,5 @@
 // react-query
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useAuth } from "../context/useAuth";
 import { IoLogoDesignernews } from "react-icons/io";
 
 // services

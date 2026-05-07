@@ -12,7 +12,7 @@ import { styles } from "../styles/style";
 // context/useAuth
 import { useAuth } from "../context/useAuth";
 // components
-import Loader from "../components/Loader";
+import { Loader } from "../components";
 
 function SignUp() {
   const { handleRegister, user, loading } = useAuth();

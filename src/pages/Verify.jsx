@@ -3,7 +3,7 @@ import { styles } from "../styles/style";
 // assets
 import logo from "../assets/logo.svg";
 
-import Loader from "../components/Loader";
+import { Loader } from "../components";
 
 // react-hook-form
 import { useForm } from "react-hook-form";
