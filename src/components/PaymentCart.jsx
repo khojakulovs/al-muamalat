@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { styles } from "../styles/style";
 import { useMutation } from "@tanstack/react-query";
 import { request } from "../services/request";
+import toast from "react-hot-toast";
 
 const services = [
   {
@@ -64,18 +65,18 @@ function PaymentCart({ userId, courseId }) {
     },
 
     onError: (err) => {
-      console.error("To'lov xatosi:", err);
+      toast.error("To'lov xatosi:", err);
     },
   });
 
   //onSubmit
   const onSubmit = () => {
-    const submitData = {
+    const payload = {
       course_id: courseId,
       user_id: userId,
     };
 
-    mutate(submitData);
+    mutate(payload);
   };
 
   return (

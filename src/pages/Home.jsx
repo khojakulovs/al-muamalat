@@ -1,5 +1,4 @@
-import { Hero, Servis } from "../components";
-import OurExpert from "../components/OurExpert";
+import { Hero, Servis, OurExpert, OurPartners } from "../components";
 
 export default function Home() {
   return (
@@ -7,6 +6,7 @@ export default function Home() {
       <Hero />
       <Servis />
       <OurExpert />
+      <OurPartners />
     </>
   );
 }

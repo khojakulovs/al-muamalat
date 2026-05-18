@@ -6,3 +6,6 @@ export { default as Loader } from "./Loader";
 export { default as ProgramInfo } from "./ProgramInfo";
 export { default as BrefAbout } from "./BrefAbout";
 export { default as PaymentCart } from "./PaymentCart";
+export { default as OurExpert } from "./OurExpert";
+export { default as OurPartners } from "./OurPartners";
+export { default as PartnersAni } from "./PartnersAni";

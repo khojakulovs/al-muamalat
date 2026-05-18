@@ -7,3 +7,8 @@ export { default as user_Tree } from "./user3.svg";
 export { default as menu } from "./menu.svg";
 export { default as close } from "./close.svg";
 export { default as expert } from "./expert.svg";
+export { default as AmercanExpress } from "./AmercanExpress.png";
+export { default as Klarna } from "./Klarna.png";
+export { default as Skrill } from "./Skrill.png";
+export { default as Stripe } from "./Stripe.png";
+export { default as Westr } from "./westernunion.png";
