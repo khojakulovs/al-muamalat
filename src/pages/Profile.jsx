@@ -40,8 +40,8 @@ function Profile() {
   });
 
   const { mutate } = useMutation({
-    mutationFn: (data) =>
-      request.put(`/users/${userData?.data?.user_id}`, data),
+    mutationFn: (payload) =>
+      request.put(`/users/${userData?.data?.user_id}`, payload),
     onSuccess: (response) => {
       console.log(response);
       toast.success(response.message);
@@ -65,7 +65,6 @@ function Profile() {
     };
 
     mutate(payload);
-    console.log(payload);
 
     reset();
   };
@@ -170,20 +169,6 @@ function Profile() {
                 />
               </div>
 
-              {/* Last Name */}
-              {/* <div>
-                <label className="block text-[13px] font-medium text-gray-500 mb-1.5">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  {...register("lastName", { required: true })}
-                  placeholder="Your Last Name"
-                  className={`w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400
-                                         focus:outline-none ${styles.mainFocus} focus:ring-2 focus:ring-[#009688]/10 transition`}
-                />
-              </div> */}
-
               {/* Address */}
               <div>
                 <label className="block text-[13px] font-medium text-gray-500 mb-1.5">
@@ -198,13 +183,13 @@ function Profile() {
                 />
               </div>
 
-              {/* Birthday */}
+              {/* Phone */}
               <div>
                 <label className="block text-[13px] font-medium text-gray-500 mb-1.5">
                   Phone Number
                 </label>
                 <input
-                  type="number"
+                  type="tel"
                   placeholder="Your Phone Number"
                   {...register("number", { required: true })}
                   className={`w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400

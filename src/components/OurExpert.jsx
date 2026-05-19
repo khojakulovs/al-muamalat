@@ -3,8 +3,8 @@ import expert_img from "../assets/expert.svg";
 
 function OurExpert() {
   return (
-    <section className="custom-container mt-10 min-h-screen">
-      <div className="flex flex-col justify-center items-center">
+    <section className="custom-container mt-10">
+      <div className="flex flex-col items-center">
         <h2 className="text-[30px] md:text-[40px] font-semibold">
           Our Expert Team
         </h2>

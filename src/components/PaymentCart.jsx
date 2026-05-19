@@ -123,7 +123,7 @@ function PaymentCart({ userId, courseId }) {
             disabled={isPending}
             className={`w-full py-3.5 ${styles.mainBackColor} ${styles.hover} 
     text-[#E1F5EE] font-medium rounded-xl transition-colors duration-150
-    disabled:opacity-60 disabled:cursor-not-allowed`}
+    disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer`}
           >
             {isPending ? "Yuklanmoqda..." : "Purchase Now"}
           </button>

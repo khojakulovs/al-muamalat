@@ -25,10 +25,13 @@ function PartnersAni({ reverse = false }) {
           <div
             key={i}
             className="flex items-center justify-center mx-2 px-8 py-3 bg-white
-                       border border-gray-200 rounded-xl min-w-[150px] h-16
+                       border border-gray-200 rounded-xl w-[110px] md:w-[150px] h-12 md:h-16
                        hover:border-emerald-400 hover:shadow-md transition-all cursor-pointer"
           >
-            <span style={{ color: p.color }} className="font-bold text-sm">
+            <span
+              style={{ color: p.color }}
+              className="font-bold text-[12px] md:text-sm"
+            >
               {p.name}
             </span>
           </div>

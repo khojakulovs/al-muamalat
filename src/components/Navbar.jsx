@@ -10,7 +10,11 @@ import { styles } from "../styles/style";
 
 // react-icons
 import { FaAngleDown } from "react-icons/fa6";
+
+// react
 import { useState } from "react";
+
+// useQuery
 import { useQuery } from "@tanstack/react-query";
 
 function Navbar() {
@@ -112,22 +116,13 @@ function Navbar() {
 
         {/* Navbar end */}
         <div className="flex items-center gap-5">
-          <div className="dropdown w-[50px] dropdown-bottom dropdown-center">
-            <div tabIndex={0} role="li" className="flex items-center gap-1">
-              ENG <FaAngleDown />
-            </div>
-            <ul
-              tabIndex="-1"
-              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
-            >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-            </ul>
-          </div>
+          <select
+            defaultValue=""
+            className="select w-[65px] md:w-[70px] h-[30px] md:h-[40px]"
+          >
+            <option disabled={false}>Eng</option>
+            <option>Uzb</option>
+          </select>
           <Link
             to={"/login"}
             className={`px-4 md:px-6 py-1 md:py-2 ${styles.radiusBtn} ${styles.mainBackColor} text-white active:scale-95 transition-all duration-200`}
